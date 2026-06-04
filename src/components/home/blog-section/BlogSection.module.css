@@ -1,0 +1,70 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--background);
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.description {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  color: var(--foreground-muted);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--background-muted);
+}
+
+.thumb {
+  height: 10rem;
+  background: linear-gradient(135deg, var(--accent-highlight), var(--accent));
+}
+
+.date {
+  padding: 1rem 1rem 0;
+  font-size: 0.75rem;
+  color: var(--foreground-muted);
+  margin: 0;
+}
+
+.card h3 {
+  padding: 0 1rem;
+  font-size: 1rem !important;
+  margin: 0.5rem 0;
+}
+
+.excerpt {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  color: var(--foreground-muted);
+  margin-bottom: 1rem;
+}
+
+.card a {
+  display: inline-block;
+  padding: 0 1rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}

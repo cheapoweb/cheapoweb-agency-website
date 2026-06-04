@@ -1,0 +1,65 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--background);
+}
+
+.eyebrow {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--background-muted);
+}
+
+.card h3 {
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--foreground-muted);
+}
+
+.cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}

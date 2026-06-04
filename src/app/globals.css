@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
+/*
+ * Brand tokens — edit values here to retheme the entire site.
+ * Components should use semantic tokens (--background, --accent, etc.),
+ * not raw palette names, unless you are adding a new semantic role.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Palette (source of truth) ── */
+  --color-dark-navy: #17252a;
+  --color-teal-green: #2b7a78;
+  --color-aqua-teal: #3aafa9;
+  --color-mint-ice: #def2f1;
+  --color-white: #ffffff;
+  --color-off-white: #feffff;
+
+  /* Secondary text — adjust if client wants a different gray */
+  --color-gray-muted: #5a6b70;
+
+  /* ── Semantic colors (use these in UI) ── */
+  --background: var(--color-white);
+  --background-muted: var(--color-mint-ice);
+  --background-dark: var(--color-dark-navy);
+  --background-accent: var(--color-aqua-teal);
+
+  --foreground: var(--color-dark-navy);
+  --foreground-muted: var(--color-gray-muted);
+  --foreground-on-dark: var(--color-off-white);
+
+  --accent: var(--color-teal-green);
+  --accent-highlight: var(--color-aqua-teal);
+
+  --border: var(--color-mint-ice);
+  --border-strong: var(--color-aqua-teal);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-teal-green) 0%,
+    var(--color-mint-ice) 100%
+  );
+
+  /* Hero / header split (matches reference layout) */
+  --layout-hero-left: 38%;
+  --layout-hero-right: 62%;
+  --layout-hero-padding-x: clamp(1.75rem, 4vw, 3.5rem);
+
+  /* ── Typography ── */
+  --font-heading: var(--font-raleway), "Raleway", Arial, sans-serif;
+  --font-body: var(--font-raleway), "Raleway", Arial, sans-serif;
+  --font-stat: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+
+  --text-body-size: 16px;
+  --text-body-line-height: 1.5;
+
+  --font-weight-body: 400;
+  --font-weight-heading: 400;
+  --font-weight-heading-semibold: 600;
+  --font-weight-heading-bold: 700;
+
+  --text-h1-size: 3.5rem; /* 56px */
+  --text-h2-size: 2.625rem; /* 42px */
+  --text-h3-size: 2rem; /* 32px */
+  --text-h4-size: 1.5rem; /* 24px */
+  --text-h5-size: 1.25rem; /* 20px */
+  --text-h6-size: 1.125rem; /* 18px */
 }
 
+/* Tailwind theme — maps utilities to semantic tokens above */
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background-muted: var(--background-muted);
+  --color-background-dark: var(--background-dark);
+  --color-background-accent: var(--background-accent);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-on-dark: var(--foreground-on-dark);
+
+  --color-accent: var(--accent);
+  --color-accent-highlight: var(--accent-highlight);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-brand-navy: var(--color-dark-navy);
+  --color-brand-teal: var(--color-teal-green);
+  --color-brand-aqua: var(--color-aqua-teal);
+  --color-brand-mint: var(--color-mint-ice);
+
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+}
+
+p {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: var(--font-weight-heading);
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: var(--text-h1-size);
+  font-weight: var(--font-weight-heading-bold);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-h2-size);
+  font-weight: var(--font-weight-heading-semibold);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-h3-size);
+  font-weight: var(--font-weight-heading-semibold);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: var(--text-h4-size);
+  font-weight: var(--font-weight-heading-semibold);
+  line-height: 1.25;
+}
+
+h5 {
+  font-size: var(--text-h5-size);
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: var(--text-h6-size);
+  line-height: 1.35;
+}
+
+a {
+  color: var(--accent-highlight);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
 }

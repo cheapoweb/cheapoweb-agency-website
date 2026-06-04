@@ -1,0 +1,16 @@
+export { HeroSection } from "./hero-section/HeroSection";
+export { AboutSection } from "./about-section/AboutSection";
+export { ResultsSection } from "./results-section/ResultsSection";
+export { ServicesSection } from "./services-section/ServicesSection";
+export { StatsSection } from "./stats-section/StatsSection";
+export { WhyChooseSection } from "./why-choose-section/WhyChooseSection";
+export { CaseStudiesSection } from "./case-studies-section/CaseStudiesSection";
+export { ChallengesSection } from "./challenges-section/ChallengesSection";
+export { PartnersSection } from "./partners-section/PartnersSection";
+export { FeaturedWorkSection } from "./featured-work-section/FeaturedWorkSection";
+export { TestimonialsSection } from "./testimonials-section/TestimonialsSection";
+export { AwardsSection } from "./awards-section/AwardsSection";
+export { PhilosophySection } from "./philosophy-section/PhilosophySection";
+export { ClientsSection } from "./clients-section/ClientsSection";
+export { BlogSection } from "./blog-section/BlogSection";
+export { ContactSection } from "./contact-section/ContactSection";

@@ -1,0 +1,19 @@
+.page {
+  padding: 5rem 0 6rem;
+  background-color: var(--background-muted);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+.text {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+  color: var(--foreground-muted);
+}

@@ -1,0 +1,87 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--background-dark);
+  color: var(--foreground-on-dark);
+}
+
+.mainTitle {
+  text-align: center;
+  color: var(--foreground-on-dark) !important;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: rgb(255 255 255 / 75%);
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  color: var(--accent-highlight) !important;
+  font-size: 1.125rem !important;
+  margin-bottom: 1rem;
+}
+
+.card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: var(--foreground-on-dark);
+}
+
+.card ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: rgb(255 255 255 / 75%);
+  font-size: 0.9375rem;
+}
+
+.note {
+  font-size: 0.875rem;
+  color: rgb(255 255 255 / 70%);
+  margin: 0;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.badge {
+  min-width: 8rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--accent-highlight);
+  border-radius: 0.25rem;
+  color: var(--foreground-on-dark);
+  background: rgb(255 255 255 / 5%);
+}
+
+.card a {
+  border-color: var(--foreground-on-dark);
+  color: var(--foreground-on-dark);
+}

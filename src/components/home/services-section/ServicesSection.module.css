@@ -1,0 +1,220 @@
+/* 100vh split — polished 2×3 service cards */
+.section {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background-color: var(--color-white);
+  color: #000;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 992px) {
+  .layout {
+    flex-direction: row;
+  }
+}
+
+.visualCol {
+  flex-shrink: 0;
+  width: 100%;
+  height: 32vh;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .visualCol {
+    flex: 0 0 50%;
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.visualInner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.visualMedia {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.75rem);
+  background-color: #f4f7f7;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .contentCol {
+    flex: 0 0 50%;
+    width: 50%;
+    height: 100%;
+    padding: 2.5rem 2.75rem 2rem;
+  }
+}
+
+.intro {
+  flex-shrink: 0;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .intro {
+    margin-bottom: 1.35rem;
+  }
+}
+
+.title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #000 !important;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.2vw, 1.5rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  color: #000 !important;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 0.875rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 1rem 1.1rem 0.9rem;
+  border: 1px solid rgb(43 122 120 / 18%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 12px rgb(23 37 42 / 8%);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgb(23 37 42 / 12%);
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0 0 0.65rem;
+  font-family: var(--font-heading);
+  font-size: clamp(0.75rem, 1.15vw, 0.9375rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--color-white);
+}
+
+.checkIcon svg {
+  width: 0.625rem;
+  height: auto;
+}
+
+.cardItems {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.cardItems li {
+  position: relative;
+  padding-left: 0.75rem;
+  margin-bottom: 0.35rem;
+  font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #3d4a4e;
+}
+
+.cardItems li:last-child {
+  margin-bottom: 0;
+}
+
+.cardItems li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: var(--accent-highlight);
+}
+
+@media (max-width: 991px) {
+  .section {
+    height: auto;
+    max-height: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .layout {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .cardGrid {
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,12 @@
+.page {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Pull hero under overlay header on desktop */
+@media (min-width: 992px) {
+  .page {
+    margin-top: 0;
+  }
+}
