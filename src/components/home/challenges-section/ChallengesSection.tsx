@@ -39,7 +39,7 @@ const CONTENT = {
     {
       question: "Do you work with businesses outside New York?",
       answer:
-        "Yes. We provide web development, website maintenance, SEO, and digital marketing services for businesses across the United States.",
+        "Yes. While we're a New York-based digital agency, we provide web development, website maintenance, SEO, and digital marketing services for businesses nationwide.",
       bullets: [] as string[],
       link: "CONTACT US",
     },

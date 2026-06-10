@@ -13,9 +13,9 @@ const CONTENT = {
     "https://player.vimeo.com/external/340728058.hd.mp4?s=1de0a9e44eabaf4806b563e374163793eb52e1e3&profile_id=174",
   modalCloseLabel: "CLOSE",
   eyebrow: "ABOUT US",
-  title: "USA Web Development & Digital Growth Experts Since 2020",
+  title: "New York Digital Growth & Web Development Experts Since 2020",
   description:
-    "CheapoWeb is a full-service web development, website maintenance, and digital marketing agency helping businesses across the United States build stronger online brands and generate measurable growth. Since 2020, we've partnered with startups, local businesses, eCommerce brands, law firms, healthcare providers, and growing enterprises to create custom digital solutions that drive results. From custom website design and marketplace development to SEO, social media marketing, and ongoing website maintenance, our team delivers strategies focused on increasing visibility, engagement, and revenue. Our approach combines modern design, scalable development, search optimization, and data-driven marketing to help businesses attract qualified traffic, convert more leads, and maintain a competitive advantage online.",
+    "CheapoWeb is a New York-based digital agency offering web development, website maintenance, and digital marketing services that help businesses build stronger online brands and generate measurable growth. Since 2020, we've partnered with startups, local businesses, eCommerce brands, law firms, healthcare providers, and growing enterprises to create custom digital solutions that drive results. From custom website design and marketplace development to SEO, social media marketing, and ongoing website maintenance, our team delivers strategies focused on increasing visibility, engagement, and revenue. Our approach combines modern design, scalable development, search optimization, and data-driven marketing to help businesses attract qualified traffic, convert more leads, and maintain a competitive advantage online.",
   cta: "SCHEDULE A STRATEGY CALL",
 } as const;
 

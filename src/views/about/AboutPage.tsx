@@ -7,7 +7,7 @@ const CONTENT = {
   title:
     "Award-Winning Web Design, Development and Digital Marketing Agency Driving Business Growth Since 2020.",
   description:
-    "CheapoWeb is a full-service web design and digital marketing agency creating high-performance websites and scalable digital platforms for brands ready to grow and lead. Since 2020, we've partnered with companies across the U.S. to deliver custom design, development, and conversion-focused experiences. We blend strategic branding, UI/UX, SEO, and AI-driven search visibility to help brands stand out, attract qualified traffic, and turn engagement into measurable revenue.",
+    "CheapoWeb is a New York-based digital agency creating high-performance websites and scalable digital platforms for brands ready to grow and lead. Since 2020, we've partnered with companies across New York and nationwide to deliver custom design, development, and conversion-focused experiences. We blend strategic branding, UI/UX, SEO, and AI-driven search visibility to help brands stand out, attract qualified traffic, and turn engagement into measurable revenue.",
   cta: "SCHEDULE MEETING",
 } as const;
 

@@ -12,9 +12,9 @@ const CONTENT = {
         "One team for website design, web development, maintenance, SEO, and digital marketing.",
     },
     {
-      title: "USA-BASED TEAM",
+      title: "NEW YORK-BASED DIGITAL TEAM",
       description:
-        "Work directly with experienced professionals who understand your business goals and market.",
+        "Work directly with experienced digital professionals who understand your business goals and the New York market.",
     },
     {
       title: "FAST TURNAROUND TIMES",

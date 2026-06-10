@@ -3,9 +3,9 @@ import { contactInfo } from "@/config/contact";
 export const siteConfig = {
   name: "CheapoWeb",
   legalName: "CheapoWeb",
-  tagline: "Digital Agency New York Base",
+  tagline: "New York-Based Digital Agency",
   description:
-    "CheapoWeb is a New York web design company and digital marketing agency trusted by brands since 2020.",
+    "CheapoWeb is a New York-based digital agency specializing in web design, development, and digital marketing trusted by brands since 2020.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_US",
   author: "CheapoWeb",
