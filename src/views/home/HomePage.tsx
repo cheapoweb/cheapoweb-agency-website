@@ -1,15 +1,12 @@
 import {
   AboutSection,
-  AwardsSection,
   BlogSection,
-  CaseStudiesSection,
   ChallengesSection,
-  ClientsSection,
   ContactSection,
   FeaturedWorkSection,
   HeroSection,
+  NewsletterSection,
   PartnersSection,
-  PhilosophySection,
   ResultsSection,
   ServicesSection,
   StatsSection,
@@ -27,16 +24,13 @@ export function HomePage() {
       <ServicesSection />
       <StatsSection />
       <WhyChooseSection />
-      <CaseStudiesSection />
       <ChallengesSection />
       <PartnersSection />
       <FeaturedWorkSection />
       <TestimonialsSection />
-      <AwardsSection />
-      <PhilosophySection />
-      <ClientsSection />
       <BlogSection />
       <ContactSection />
+      <NewsletterSection />
     </div>
   );
 }

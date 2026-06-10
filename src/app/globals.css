@@ -119,6 +119,11 @@ h6 {
   color: var(--foreground);
 }
 
+section h2 {
+  font-size: var(--text-h2-size);
+  line-height: 1.1;
+}
+
 h1 {
   font-size: var(--text-h1-size);
   font-weight: var(--font-weight-heading-bold);

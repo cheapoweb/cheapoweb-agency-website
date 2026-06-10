@@ -1,65 +1,109 @@
 .section {
-  padding: 4rem 0;
+  position: relative;
+  width: 100vw;
+  padding: 0;
   background-color: var(--background);
+  overflow: hidden;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  max-width: 100%;
+}
+
+@media (min-width: 992px) {
+  .split {
+    grid-template-columns: 30% 70%;
+  }
+}
+
+.leftArt {
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.leftArtImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.right {
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 200px);
 }
 
 .eyebrow {
-  text-align: center;
+  text-align: left;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
 }
 
 .title {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
-  margin-bottom: 2.5rem;
+  text-align: left;
+  text-transform: none;
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  margin: 0 0 1.5rem;
+  color: var(--foreground-on-white);
+  max-width: 48rem;
 }
 
 .grid {
   display: grid;
-  gap: 1.5rem;
   grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 2.5rem;
   }
 }
 
 .card {
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--background-muted);
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .card h3 {
   font-size: 1rem !important;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
   color: var(--accent);
 }
 
 .card p {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   color: var(--foreground-muted);
 }
 
 .cta {
-  margin-top: 2.5rem;
+  margin: 2.5rem 0rem;
   text-align: center;
+}
+
+.ctaButton {
+  border-width: 1px !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+.ctaButton:hover{
+  border-width: 1px !important;
+  border-color: var(--accent) !important;
+  background-color: var(--foreground-on-dark) !important;
+  color: var(--accent) !important;
 }

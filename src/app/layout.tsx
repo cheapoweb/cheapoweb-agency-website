@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${raleway.variable} ${bebasNeue.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+      <body id="top" className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <SiteHeader />
         <main className="relative flex-1">{children}</main>
         <Footer />

@@ -1,45 +1,51 @@
-/* 100vh split — polished 2×3 service cards */
+.scrollPin {
+  position: relative;
+  width: 100%;
+}
+
 .section {
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
+  width: 100%;
+  background-color: var(--background);
   overflow: hidden;
-  background-color: var(--color-white);
-  color: #000;
+}
+
+@media (min-width: 992px) {
+  .section {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
 }
 
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 @media (min-width: 992px) {
   .layout {
     flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+    min-height: 0;
   }
 }
 
 .visualCol {
+  position: relative;
   flex-shrink: 0;
   width: 100%;
-  height: 32vh;
+  height: clamp(14rem, 32vh, 18rem);
   overflow: hidden;
 }
 
 @media (min-width: 992px) {
   .visualCol {
-    flex: 0 0 50%;
-    width: 50%;
+    flex: 0 0 42%;
+    width: 42%;
     height: 100%;
+    min-height: 0;
   }
-}
-
-.visualInner {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 .visualMedia {
@@ -51,170 +57,219 @@
 }
 
 .contentCol {
-  display: flex;
-  flex-direction: column;
   flex: 1 1 auto;
-  width: 100%;
   min-height: 0;
-  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.75rem);
-  background-color: #f4f7f7;
-  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+  background-color: var(--background-muted);
+  background-image:
+    radial-gradient(
+      circle at 20% 35%,
+      rgb(255 255 255 / 55%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 25%,
+      rgb(43 122 120 / 10%) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      rgb(58 175 169 / 8%) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgb(255 255 255 / 45%) 0%,
+      transparent 50%
+    ),
+    repeating-radial-gradient(
+      circle at 66% 49%,
+      transparent 0,
+      transparent 18px,
+      rgb(43 122 120 / 5%) 18px,
+      rgb(43 122 120 / 5%) 36px
+    );
 }
 
 @media (min-width: 992px) {
   .contentCol {
-    flex: 0 0 50%;
-    width: 50%;
+    flex: 1 1 0;
+    width: 0;
     height: 100%;
-    padding: 2.5rem 2.75rem 2rem;
+    max-height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: clamp(2.5rem, 4vw, 3.5rem) 200px clamp(2.5rem, 4vw, 3.5rem)
+      clamp(2rem, 4vw, 3.5rem);
   }
+}
+
+.contentInner {
+  will-change: transform;
 }
 
 .intro {
-  flex-shrink: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
 }
 
-@media (min-width: 992px) {
-  .intro {
-    margin-bottom: 1.35rem;
-  }
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-heading-bold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .title {
-  margin: 0 0 0.85rem;
+  margin: 0 0 1rem;
+  max-width: 44rem;
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3.5vw, 3rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.12 !important;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: var(--font-weight-heading-bold);
+  line-height: 1.12;
   letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: #000 !important;
-}
-
-.subtitle {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: clamp(1rem, 2.2vw, 1.5rem) !important;
-  font-weight: 600 !important;
-  line-height: 1.35 !important;
-  color: #000 !important;
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  gap: 0.875rem;
-  flex: 1 1 auto;
-  min-height: 0;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  padding: 1rem 1.1rem 0.9rem;
-  border: 1px solid rgb(43 122 120 / 18%);
-  border-left: 4px solid var(--accent);
-  border-radius: 0.5rem;
-  background-color: var(--color-white);
-  box-shadow: 0 2px 12px rgb(23 37 42 / 8%);
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-  overflow: hidden;
-}
-
-.card:hover {
-  box-shadow: 0 6px 20px rgb(23 37 42 / 12%);
-  transform: translateY(-2px);
-}
-
-.cardTitle {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin: 0 0 0.65rem;
-  font-family: var(--font-heading);
-  font-size: clamp(0.75rem, 1.15vw, 0.9375rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.3;
   text-transform: uppercase;
   color: #000;
 }
 
-.checkIcon {
-  flex-shrink: 0;
+.subtitle {
+  margin: 0;
+  max-width: 36rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: var(--font-weight-body);
+  line-height: 1.6;
+  color: #2e2e2e;
+}
+
+.serviceGrid {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 3vw, 2.75rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+.serviceBlock {
+  position: relative;
+  padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
+  border-bottom: 1px solid rgb(43 122 120 / 14%);
+}
+
+.serviceBlock:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .serviceBlock:nth-last-child(-n + 2) {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.index {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-stat);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgb(43 122 120 / 18%);
+}
+
+.serviceTitle {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  font-weight: var(--font-weight-heading-bold);
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tagList {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.375rem;
-  height: 1.375rem;
-  margin-top: 0.05rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--color-white);
-}
-
-.checkIcon svg {
-  width: 0.625rem;
-  height: auto;
-}
-
-.cardItems {
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
 }
 
-.cardItems li {
-  position: relative;
-  padding-left: 0.75rem;
-  margin-bottom: 0.35rem;
-  font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgb(43 122 120 / 12%);
+  background: var(--background);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
   font-weight: 500;
-  line-height: 1.4;
-  color: #3d4a4e;
+  line-height: 1.35;
+  color: #2e2e2e;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.cardItems li:last-child {
-  margin-bottom: 0;
+.serviceBlock:hover .tag {
+  border-color: rgb(58 175 169 / 28%);
 }
 
-.cardItems li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 0.3rem;
-  height: 0.3rem;
-  border-radius: 50%;
-  background: var(--accent-highlight);
+.tagList li:hover .tag {
+  border-color: var(--accent-highlight);
+  background: rgb(58 175 169 / 8%);
+  color: var(--accent);
 }
 
-@media (max-width: 991px) {
-  .section {
-    height: auto;
-    max-height: none;
-    min-height: 100vh;
-    min-height: 100dvh;
-    overflow: visible;
+.ctaWrap {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.cta {
+  border-radius: 0 !important;
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cta:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--foreground-on-dark) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @media (min-width: 992px) {
+    .section {
+      position: relative;
+      height: auto;
+      max-height: none;
+    }
+
+    .contentCol {
+      height: auto;
+      overflow: visible;
+    }
   }
 
-  .layout {
-    min-height: 100vh;
-    min-height: 100dvh;
+  .contentInner {
+    will-change: auto;
+    transform: none !important;
   }
 
-  .cardGrid {
-    grid-template-rows: auto;
-    gap: 0.75rem;
-  }
-
-  .card:hover {
-    transform: none;
+  .tag {
+    transition: none;
   }
 }

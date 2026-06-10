@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./ChallengesSection.module.css";
 
 const CONTENT = {
@@ -77,15 +76,17 @@ const CONTENT = {
 } as const;
 
 export function ChallengesSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <section className={styles.section}>
-      <SectionContainer>
+      <div className={styles.inner}>
         <div className={styles.layout}>
           <div className={styles.intro}>
             <h2>{CONTENT.title}</h2>
-            <Button href="#contact">{CONTENT.cta}</Button>
+            <Button href="#contact" variant="outline" className={styles.ctaButton}>
+              {CONTENT.cta}
+            </Button>
           </div>
           <div className={styles.accordion}>
             {CONTENT.items.map((item, index) => {
@@ -99,7 +100,11 @@ export function ChallengesSection() {
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   >
                     <span>{item.question}</span>
-                    <span className={styles.icon}>{isOpen ? "−" : "+"}</span>
+                    <span className={`${styles.icon} ${isOpen ? styles.open : ""}`}>
+                      <svg viewBox="0 0 10.375 17.031" aria-hidden>
+                        <path d="M435.647,369.528a0.861,0.861,0,0,0,0-1.328l-7.578-7.578a0.942,0.942,0,0,0-1.328,0l-0.859.859a0.974,0.974,0,0,0-.293.664,0.838,0.838,0,0,0,.254.664l6.054,6.055-6.054,6.055a0.837,0.837,0,0,0-.254.664,0.976,0.976,0,0,0,.293.664l0.859,0.859a0.944,0.944,0,0,0,1.328,0Z" transform="translate(-425.594 -360.344)"></path>
+                      </svg>
+                    </span>
                   </button>
                   {isOpen && (
                     <div className={styles.panel}>
@@ -121,7 +126,7 @@ export function ChallengesSection() {
             })}
           </div>
         </div>
-      </SectionContainer>
+      </div>
     </section>
   );
 }

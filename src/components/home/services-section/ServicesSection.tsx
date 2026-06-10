@@ -1,7 +1,12 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/Button";
 import styles from "./ServicesSection.module.css";
 
 const CONTENT = {
   visualSrc: "/assets/videos/service-section.gif",
+  eyebrow: "OUR SERVICES",
   title: "OUR WEB DESIGN, DEVELOPMENT, AND MARKETING SERVICES DRIVE REVENUE!",
   subtitle:
     "Looking for a web design and development company or digital marketing agency to drive growth?",
@@ -70,55 +75,178 @@ const CONTENT = {
   cta: "REQUEST PROPOSAL",
 } as const;
 
+const DESKTOP_QUERY = "(min-width: 992px)";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
 export function ServicesSection() {
+  const pinRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentColRef = useRef<HTMLDivElement>(null);
+  const contentInnerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const pin = pinRef.current;
+    const section = sectionRef.current;
+    const contentCol = contentColRef.current;
+    const contentInner = contentInnerRef.current;
+
+    if (!pin || !section || !contentCol || !contentInner) {
+      return;
+    }
+
+    let frameId = 0;
+
+    const clearSectionStyles = () => {
+      section.style.position = "";
+      section.style.top = "";
+      section.style.left = "";
+      section.style.width = "";
+      section.style.height = "";
+      section.style.zIndex = "";
+    };
+
+    const resetPin = () => {
+      pin.style.height = "";
+      clearSectionStyles();
+      contentInner.style.transform = "";
+    };
+
+    const getSectionHeight = () => window.innerHeight;
+
+    const getScrollMetrics = () => {
+      const columnStyles = window.getComputedStyle(contentCol);
+      const paddingY =
+        parseFloat(columnStyles.paddingTop) + parseFloat(columnStyles.paddingBottom);
+      const scrollViewport = contentCol.clientHeight - paddingY;
+      const overflow = Math.max(
+        0,
+        Math.ceil(contentInner.scrollHeight - scrollViewport)
+      );
+
+      return { overflow, scrollViewport, sectionHeight: getSectionHeight() };
+    };
+
+    const updateScrollPin = () => {
+      frameId = 0;
+
+      const isDesktop = window.matchMedia(DESKTOP_QUERY).matches;
+      const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
+
+      if (!isDesktop || prefersReducedMotion) {
+        resetPin();
+        return;
+      }
+
+      clearSectionStyles();
+
+      const { overflow, scrollViewport, sectionHeight } = getScrollMetrics();
+
+      if (overflow <= 0 || scrollViewport <= 0) {
+        pin.style.height = "";
+        contentInner.style.transform = "";
+        return;
+      }
+
+      pin.style.height = `${sectionHeight + overflow}px`;
+
+      const pinTop = pin.getBoundingClientRect().top;
+      const scrolledIntoPin = Math.max(0, -pinTop);
+      const progress = Math.min(scrolledIntoPin / overflow, 1);
+
+      contentInner.style.transform = `translate3d(0, ${-progress * overflow}px, 0)`;
+
+      if (pinTop <= 0 && scrolledIntoPin < overflow) {
+        section.style.position = "fixed";
+        section.style.top = "0";
+        section.style.left = "0";
+        section.style.width = "100%";
+        section.style.height = `${sectionHeight}px`;
+        section.style.zIndex = "2";
+      } else if (scrolledIntoPin >= overflow) {
+        section.style.position = "absolute";
+        section.style.top = `${overflow}px`;
+        section.style.left = "0";
+        section.style.width = "100%";
+        section.style.height = `${sectionHeight}px`;
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (!frameId) {
+        frameId = window.requestAnimationFrame(updateScrollPin);
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(scheduleUpdate);
+
+    resizeObserver.observe(section);
+    resizeObserver.observe(contentInner);
+    resizeObserver.observe(contentCol);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
+
+    scheduleUpdate();
+    window.requestAnimationFrame(scheduleUpdate);
+
+    return () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      resizeObserver.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      resetPin();
+    };
+  }, []);
+
   return (
-    <section className={styles.section} id="services">
-      <div className={styles.layout}>
-        <aside className={styles.visualCol} aria-hidden>
-          <div className={styles.visualInner}>
+    <div ref={pinRef} className={styles.scrollPin} id="services">
+      <section ref={sectionRef} className={styles.section}>
+        <div className={styles.layout}>
+          <aside className={styles.visualCol} aria-hidden>
             <img
               src={CONTENT.visualSrc}
               alt=""
               className={styles.visualMedia}
             />
-          </div>
-        </aside>
+          </aside>
 
-        <div className={styles.contentCol}>
-          <header className={styles.intro}>
-            <h2 className={styles.title}>{CONTENT.title}</h2>
-            <h3 className={styles.subtitle}>{CONTENT.subtitle}</h3>
-          </header>
+          <div ref={contentColRef} className={styles.contentCol}>
+            <div ref={contentInnerRef} className={styles.contentInner}>
+              <header className={styles.intro}>
+                <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
+                <h2 className={styles.title}>{CONTENT.title}</h2>
+                <p className={styles.subtitle}>{CONTENT.subtitle}</p>
+              </header>
 
-          <div className={styles.cardGrid}>
-            {CONTENT.groups.map((group) => (
-              <article key={group.title} className={styles.card}>
-                <h4 className={styles.cardTitle}>
-                  <span className={styles.checkIcon} aria-hidden>
-                    <svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1 5.2L4.2 8.4L11 1.6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  {group.title}
-                </h4>
-                {group.items.length > 0 && (
-                  <ul className={styles.cardItems}>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                )}
-              </article>
-            ))}
+              <div className={styles.serviceGrid}>
+                {CONTENT.groups.map((group, index) => (
+                  <article key={group.title} className={styles.serviceBlock}>
+                    <span className={styles.index}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className={styles.serviceTitle}>{group.title}</h3>
+                    <ul className={styles.tagList}>
+                      {group.items.map((item) => (
+                        <li key={item}>
+                          <span className={styles.tag}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+
+              <div className={styles.ctaWrap}>
+                <Button href="#contact" variant="outline" className={styles.cta}>
+                  {CONTENT.cta}
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

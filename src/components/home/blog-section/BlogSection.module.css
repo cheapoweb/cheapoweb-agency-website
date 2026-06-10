@@ -1,70 +1,181 @@
 .section {
-  padding: 4rem 0;
-  background-color: var(--background);
+  padding-block: clamp(3.5rem, 7vw, 5rem);
+  background-color: var(--background-muted);
+  background-image:
+    radial-gradient(
+      circle at 20% 35%,
+      rgb(255 255 255 / 55%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 25%,
+      rgb(43 122 120 / 10%) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      rgb(58 175 169 / 8%) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgb(255 255 255 / 45%) 0%,
+      transparent 50%
+    ),
+    repeating-radial-gradient(
+      circle at 66% 49%,
+      transparent 0,
+      transparent 18px,
+      rgb(43 122 120 / 5%) 18px,
+      rgb(43 122 120 / 5%) 36px
+    );
+}
+
+.inner {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .inner {
+    padding-inline: 200px;
+  }
+}
+
+.header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: center;
 }
 
 .title {
-  text-align: center;
+  margin: 0 0 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.5vw, 3rem);
+  font-weight: var(--font-weight-heading-bold);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
+  text-align: center;
+  color: #000;
 }
 
 .description {
+  max-width: 38rem;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: var(--font-weight-body);
+  line-height: 1.6;
   text-align: center;
-  max-width: 40rem;
-  margin: 0 auto 2.5rem;
-  color: var(--foreground-muted);
+  color: #2e2e2e;
 }
 
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: clamp(1.5rem, 2.5vw, 2rem);
   grid-template-columns: 1fr;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .card {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background: var(--background-muted);
+  height: 100%;
+  background: var(--background);
+  border: 1px solid rgb(43 122 120 / 10%);
+  box-shadow: 0 4px 20px rgb(23 37 42 / 7%);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.thumb {
-  height: 10rem;
-  background: linear-gradient(135deg, var(--accent-highlight), var(--accent));
+.card:hover {
+  border-color: rgb(58 175 169 / 35%);
+  box-shadow: 0 10px 28px rgb(23 37 42 / 12%);
+  transform: translateY(-4px);
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mediaWrap {
+  overflow: hidden;
+  background: rgb(23 37 42 / 6%);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem 1.375rem 1.5rem;
+  text-align: left;
 }
 
 .date {
-  padding: 1rem 1rem 0;
-  font-size: 0.75rem;
-  color: var(--foreground-muted);
   margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #888;
 }
 
-.card h3 {
-  padding: 0 1rem;
-  font-size: 1rem !important;
-  margin: 0.5rem 0;
+.postTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-heading-bold);
+  line-height: 1.4;
+  color: #2e2e2e;
+  transition: color 0.2s ease;
+}
+
+.card:hover .postTitle {
+  color: var(--accent);
 }
 
 .excerpt {
-  padding: 0 1rem;
-  font-size: 0.875rem;
-  color: var(--foreground-muted);
-  margin-bottom: 1rem;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 
-.card a {
-  display: inline-block;
-  padding: 0 1rem 1.25rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent);
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }

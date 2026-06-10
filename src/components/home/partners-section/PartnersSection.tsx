@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./PartnersSection.module.css";
 
 const CONTENT = {
@@ -13,13 +12,20 @@ const CONTENT = {
 
 export function PartnersSection() {
   return (
-    <section className={styles.section}>
-      <SectionContainer className={styles.inner}>
-        <h2>{CONTENT.title}</h2>
-        <h3>{CONTENT.subtitle}</h3>
-        <p>{CONTENT.description}</p>
-        <Button href="#contact">{CONTENT.cta}</Button>
-      </SectionContainer>
+    <section className={styles.section} aria-labelledby="partners-title">
+      <div className={styles.contentZone}>
+        <div className={styles.content}>
+          <h2 id="partners-title" className={styles.title}>
+            {CONTENT.title}
+          </h2>
+          <p className={styles.subtitle}>{CONTENT.subtitle}</p>
+          <p className={styles.description}>{CONTENT.description}</p>
+          {/* <Button href="#contact" className={styles.cta}>
+            {CONTENT.cta}
+          </Button> */}
+        </div>
+      </div>
+      <div className={styles.logoZone} aria-hidden="true" />
     </section>
   );
 }

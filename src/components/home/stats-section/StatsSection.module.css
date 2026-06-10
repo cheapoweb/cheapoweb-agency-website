@@ -13,10 +13,49 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/assets/images/stats-pattern.webp");
+  background-color: #2b7a78;
+  opacity: 1;
+  background-image:
+    radial-gradient(
+      circle at 20% 35%,
+      rgb(255 255 255 / 18%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 25%,
+      rgb(0 0 0 / 12%) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      rgb(0 0 0 / 10%) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgb(255 255 255 / 12%) 0%,
+      transparent 50%
+    ),
+    repeating-radial-gradient(
+      circle at 66% 49%,
+      transparent 0,
+      transparent 18px,
+      rgb(255 255 255 / 04%) 18px,
+      rgb(255 255 255 / 04%) 36px
+    );
+  pointer-events: none;
+}
+
+.sectionBgInner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/assets/images/stats-BG.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.20;
 }
 
 .inner {
@@ -27,7 +66,13 @@
   width: 100%;
   height: 100%;
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 4vw, 200px);
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .inner {
+    padding-inline: 200px;
+  }
 }
 
 .split {
@@ -59,7 +104,7 @@
 
 @media (min-width: 992px) {
   .copyCol {
-    padding: 0 2rem 0 0;
+    padding: 0;
   }
 }
 

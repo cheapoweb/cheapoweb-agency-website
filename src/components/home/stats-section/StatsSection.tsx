@@ -6,7 +6,7 @@ const CONTENT = {
   title: "OUR WEB DESIGN COMPANY BRINGS IN THE NUMBERS",
   description:
     "As a top-tier web design and development agency, we get results! Check out the numbers we have gotten for our clients after designing and launching their new websites.",
-  cta: "VIEW CASE STUDIES",
+  cta: "CONTACT US",
   items: [
     { value: "200+%", label: "INCREASE IN SALES LEADS" },
     { value: "95+%", label: "INCREASE IN ENGAGEMENT RATES" },
@@ -19,7 +19,9 @@ const CONTENT = {
 export function StatsSection() {
   return (
     <section className={styles.section}>
-      <div className={styles.sectionBg} aria-hidden />
+      <div className={styles.sectionBg} aria-hidden> 
+        <div className={styles.sectionBgInner} />
+      </div>
 
       <div className={styles.inner}>
         <div className={styles.split}>
@@ -27,7 +29,7 @@ export function StatsSection() {
             <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
             <h2 className={styles.title}>{CONTENT.title}</h2>
             <p className={styles.description}>{CONTENT.description}</p>
-            <Button href="#case-studies" variant="outline" className={styles.cta}>
+            <Button href="#contact" variant="outline" className={styles.cta}>
               {CONTENT.cta}
             </Button>
           </div>

@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { SectionContainer } from "@/components/ui/SectionContainer";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./TestimonialsSection.module.css";
 
 const CONTENT = {
   title: "WHAT OUR VALUED CLIENTS ARE SAYING ABOUT US",
+  image: "/assets/images/testimonials-record.webp",
+  imageAlt: "Vintage record player with a quote mark on the vinyl label",
   items: [
     {
       quote: "I now understand why they've received so much industry recognition.",
@@ -28,47 +29,189 @@ const CONTENT = {
   ],
 } as const;
 
+type TestimonialItem = (typeof CONTENT.items)[number];
+
+const SLIDE_MS = 350;
+
+function Stars() {
+  return (
+    <div className={styles.stars} aria-label="5 out of 5 stars">
+      {Array.from({ length: 5 }, (_, i) => (
+        <span key={i} aria-hidden="true">
+          ★
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function TestimonialSlide({ slide }: { slide: TestimonialItem }) {
+  return (
+    <>
+      <p className={styles.quote}>&ldquo;{slide.quote}&rdquo;</p>
+      <p className={styles.body}>{slide.body}</p>
+      <Stars />
+      <div className={styles.attribution}>
+        <strong className={styles.authorName}>{slide.name}</strong>
+        <span className={styles.authorRole}>{slide.role}</span>
+      </div>
+    </>
+  );
+}
+
 export function TestimonialsSection() {
-  const [index, setIndex] = useState(0);
-  const item = CONTENT.items[index];
+  const items = CONTENT.items;
+  const loopSlides = useMemo(
+    () => [items[items.length - 1], ...items, items[0]],
+    [items],
+  );
+
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [trackIndex, setTrackIndex] = useState(1);
+  const [slideTransition, setSlideTransition] = useState(true);
+  const [slideOffset, setSlideOffset] = useState(0);
+
+  const activeIndex =
+    trackIndex === 0
+      ? items.length - 1
+      : trackIndex === loopSlides.length - 1
+        ? 0
+        : trackIndex - 1;
+
+  const syncSlideOffset = useCallback(() => {
+    const width = viewportRef.current?.clientWidth ?? 0;
+    setSlideOffset(trackIndex * width);
+  }, [trackIndex]);
+
+  useEffect(() => {
+    syncSlideOffset();
+
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const observer = new ResizeObserver(syncSlideOffset);
+    observer.observe(viewport);
+    return () => observer.disconnect();
+  }, [syncSlideOffset]);
+
+  const goNext = useCallback(() => {
+    setSlideTransition(true);
+    setTrackIndex((current) => current + 1);
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setSlideTransition(true);
+    setTrackIndex((current) => current - 1);
+  }, []);
+
+  const goTo = useCallback((index: number) => {
+    setSlideTransition(true);
+    setTrackIndex(index + 1);
+  }, []);
+
+  useEffect(() => {
+    if (trackIndex !== loopSlides.length - 1 && trackIndex !== 0) return;
+
+    const timeoutId = window.setTimeout(() => {
+      setSlideTransition(false);
+      setTrackIndex(trackIndex === 0 ? loopSlides.length - 2 : 1);
+    }, SLIDE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [trackIndex, loopSlides.length]);
+
+  useEffect(() => {
+    if (slideTransition) return;
+
+    const frameId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setSlideTransition(true));
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [slideTransition, trackIndex]);
 
   return (
-    <section className={styles.section}>
-      <SectionContainer>
-        <h2 className={styles.title}>{CONTENT.title}</h2>
-        <div className={styles.card}>
-          <blockquote>
-            <p className={styles.quote}>&ldquo;{item.quote}&rdquo;</p>
-            <p className={styles.body}>{item.body}</p>
-          </blockquote>
-          <footer className={styles.attribution}>
-            <strong className={styles.authorName}>{item.name}</strong>
-            <span className={styles.authorRole}>{item.role}</span>
-          </footer>
+    <section className={styles.section} aria-labelledby="testimonials-title">
+      <div className={styles.inner}>
+        <div className={styles.visualCol}>
+          <img
+            src={CONTENT.image}
+            alt={CONTENT.imageAlt}
+            className={styles.visualImage}
+            loading="lazy"
+          />
         </div>
-        <div className={styles.nav}>
-          <button
-            type="button"
-            className={styles.navBtn}
-            aria-label="Previous testimonial"
-            onClick={() =>
-              setIndex((i) => (i === 0 ? CONTENT.items.length - 1 : i - 1))
-            }
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            className={styles.navBtn}
-            aria-label="Next testimonial"
-            onClick={() =>
-              setIndex((i) => (i === CONTENT.items.length - 1 ? 0 : i + 1))
-            }
-          >
-            →
-          </button>
+
+        <div className={styles.contentCol}>
+          <h2 id="testimonials-title" className={styles.title}>
+            {CONTENT.title}
+          </h2>
+
+          <div className={styles.carousel}>
+            <button
+              type="button"
+              className={`${styles.arrow} ${styles.arrowPrev}`}
+              aria-label="Previous testimonial"
+              onClick={goPrev}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </button>
+
+            <div
+              ref={viewportRef}
+              className={styles.trackViewport}
+              aria-live="polite"
+            >
+              <div
+                className={`${styles.track} ${
+                  slideTransition ? "" : styles.trackInstant
+                }`.trim()}
+                style={{ transform: `translate3d(-${slideOffset}px, 0, 0)` }}
+              >
+                {loopSlides.map((slide, slideIndex) => (
+                  <div
+                    key={`${slide.name}-${slideIndex}`}
+                    className={styles.slide}
+                    aria-hidden={
+                      slideIndex !== trackIndex ? true : undefined
+                    }
+                  >
+                    <TestimonialSlide slide={slide} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className={`${styles.arrow} ${styles.arrowNext}`}
+              aria-label="Next testimonial"
+              onClick={goNext}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+
+          <div className={styles.dots}>
+            {items.map((_, dotIndex) => (
+              <button
+                key={dotIndex}
+                type="button"
+                className={`${styles.dot} ${
+                  dotIndex === activeIndex ? styles.dotActive : ""
+                }`.trim()}
+                aria-label={`Go to testimonial ${dotIndex + 1}`}
+                aria-current={dotIndex === activeIndex ? "true" : undefined}
+                onClick={() => goTo(dotIndex)}
+              />
+            ))}
+          </div>
         </div>
-      </SectionContainer>
+      </div>
     </section>
   );
 }

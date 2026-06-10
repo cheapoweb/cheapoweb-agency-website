@@ -1,22 +1,22 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 90vh;
+  min-height: 90dvh;
 }
 
 .split {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 90vh;
+  min-height: 90dvh;
 }
 
 @media (min-width: 992px) {
   .split {
     grid-template-columns: var(--layout-hero-left) var(--layout-hero-right);
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 90vh;
+    min-height: 90dvh;
   }
 }
 
@@ -61,8 +61,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 90vh;
+  min-height: 90dvh;
   padding: 5.5rem var(--layout-hero-padding-x) 3rem;
 }
 
@@ -134,8 +134,8 @@
 
 @media (min-width: 992px) {
   .mediaPanel {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 90vh;
+    min-height: 90dvh;
   }
 }
 
@@ -158,7 +158,7 @@
   background: linear-gradient(
     90deg,
     rgb(23 37 42 / 40%) 0%,
-    transparent 30%
+    transparent 10%
   );
   pointer-events: none;
 }

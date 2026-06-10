@@ -1,33 +1,84 @@
 .section {
-  padding: 4rem 0;
-  background-color: var(--background-muted);
+  padding: 2rem 2rem 2rem 6rem;
+  background-color: var(--background-dark);
+  color: var(--foreground-on-dark);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 4vw, 200px);
 }
 
 .layout {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center !important;
 }
 
 @media (min-width: 992px) {
   .layout {
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 3rem;
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: 10rem;
     align-items: start;
   }
 }
 
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 2rem;
+  width: 90%;
+}
+
 .intro h2 {
-  text-transform: uppercase;
-  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
-  margin-bottom: 1.5rem;
+  text-transform: none;
+  font-size: var(--text-h2-size);
+  font-weight: var(--font-weight-heading-bold);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0;
+  max-width: 44rem;
+  color: var(--foreground-on-dark);
+}
+
+.intro button,
+.intro a {
+  width: fit-content;
+}
+
+.ctaButton {
+  border-radius: 0 !important;
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--foreground-on-dark) !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.ctaButton:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--accent) !important;
 }
 
 .accordion {
-  border-top: 1px solid var(--border-strong);
+  border-top: none;
 }
 
 .item {
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.item:first-child {
+  border-top: none;
+}
+
+.item:last-child {
+  border-bottom: none;
 }
 
 .trigger {
@@ -36,42 +87,93 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
   background: none;
   border: none;
   text-align: left;
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--foreground);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--foreground-on-dark);
   cursor: pointer;
 }
 
 .icon {
-  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
   color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
   flex-shrink: 0;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  background: transparent;
+}
+
+.icon svg {
+  width: 0.8rem;
+  height: 1.1rem;
+  display: block;
+  fill: currentColor;
+  transform: rotate(90deg); /* closed = pointing down */
+  transition: transform 0.18s ease;
+}
+
+.icon.open {
+  background: var(--accent);
+  color: var(--foreground-on-dark);
+  border-color: var(--accent);
+}
+
+.icon.open svg {
+  transform: rotate(-90deg); /* open = pointing up */
 }
 
 .panel {
-  padding: 0 0 1.25rem;
+  padding: 0 0 1.5rem;
 }
 
 .panel p {
   margin: 0 0 1rem;
-  color: var(--foreground-muted);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 40rem;
 }
 
 .panel ul {
   margin: 0 0 1rem;
   padding-left: 1.25rem;
-  color: var(--foreground-muted);
+  color: rgba(255, 255, 255, 0.8);
+  list-style: disc;
+  list-style-position: outside;
+}
+
+.panel li {
+  margin-bottom: 0.6rem;
+  margin-left: 0.25rem;
 }
 
 .link {
-  font-size: 0.75rem;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.825rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent) !important;
+  color: var(--accent-highlight) !important;
+  border: 2px solid var(--accent-highlight);
+  background: transparent;
+  border-radius: 0;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.link:hover,
+.link:focus {
+  background-color: var(--accent-highlight) !important;
+  color: var(--background-dark) !important;
+  border-color: var(--accent-highlight) !important;
+  text-decoration: none;
 }

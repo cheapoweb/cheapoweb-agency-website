@@ -75,7 +75,7 @@ export function ResultsSection() {
             items={CONTENT.items}
             autoPlayMs={CONTENT.autoPlayMs}
             ctaLabel={CONTENT.cta}
-            ctaHref="#case-studies"
+            ctaHref="#contact"
           />
         </div>
         <div className={styles.spacer} aria-hidden />

@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./WhyChooseSection.module.css";
 
 const CONTENT = {
@@ -43,21 +42,33 @@ const CONTENT = {
 export function WhyChooseSection() {
   return (
     <section className={styles.section}>
-      <SectionContainer>
-        <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
-        <h2 className={styles.title}>{CONTENT.title}</h2>
-        <div className={styles.grid}>
-          {CONTENT.items.map((item) => (
-            <article key={item.title} className={styles.card}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          ))}
+      <div className={styles.split}>
+        <div className={styles.leftArt} aria-hidden>
+          <img
+            src="/assets/images/whychooseus.png"
+            alt=""
+            className={styles.leftArtImage}
+            aria-hidden="true"
+          />
+          <div className={styles.cta}>
+              <Button href="#contact" className={styles.ctaButton}>{CONTENT.cta}</Button>
+            </div>
         </div>
-        <div className={styles.cta}>
-          <Button href="#contact">{CONTENT.cta}</Button>
+
+        <div className={styles.right}>
+            <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
+            <h2 className={styles.title}>{CONTENT.title}</h2>
+
+            <div className={styles.grid}>
+              {CONTENT.items.map((item) => (
+                <article key={item.title} className={styles.card}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-      </SectionContainer>
     </section>
   );
 }
