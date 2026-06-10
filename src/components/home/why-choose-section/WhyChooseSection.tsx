@@ -2,39 +2,44 @@ import { Button } from "@/components/ui/Button";
 import styles from "./WhyChooseSection.module.css";
 
 const CONTENT = {
-  eyebrow: "OUR WEB DESIGN SERVICES",
-  title: "WHY CHOOSE US AS YOUR WEB DESIGN COMPANY?",
+  eyebrow: "WHY CHOOSE CHEAPOWEB",
+  title: "WHY BUSINESSES CHOOSE CHEAPOWEB",
   cta: "GET MY CUSTOM QUOTE",
   items: [
     {
-      title: "FULL SERVICE EXPERIENCE",
+      title: "FULL-SERVICE EXPERTISE",
       description:
-        "Why choose CheapoWeb web design and development services? Because we serve a potent mix of web design & development, brand strategy, and digital marketing.",
+        "One team for website design, web development, maintenance, SEO, and digital marketing.",
     },
     {
-      title: "MOBILE RESPONSIVE WEB DESIGN",
+      title: "USA-BASED TEAM",
       description:
-        "Each of our websites is designed and developed to be mobile responsive first and foremost to provide the best user experience—no matter the type of device.",
+        "Work directly with experienced professionals who understand your business goals and market.",
     },
     {
-      title: "WORLD-CLASS VALUE IN WEB DESIGN",
+      title: "FAST TURNAROUND TIMES",
       description:
-        "Our clients choose us because CheapoWeb web design company offers the best value + long-term satisfaction and increased sales.",
+        "Efficient project management ensures your website launches on time without sacrificing quality.",
     },
     {
-      title: "CLIENT-CENTERED PROCESS",
+      title: "DEDICATED PROJECT MANAGERS",
       description:
-        "Our dedicated web design team works directly with clients from developing design, content, SEO, development, testing, and launch.",
+        "Enjoy clear communication, transparency, and a single point of contact throughout your project.",
     },
     {
-      title: "TOP-LEVEL PROJECT MANAGEMENT",
+      title: "AFFORDABLE SOLUTIONS",
       description:
-        "Our experienced, proven project managers ensure our clients' website design projects are hyper-organized, well managed, and meet clear expectations on time.",
+        "High-quality web development and marketing services designed to provide exceptional value.",
     },
     {
-      title: "WEB DESIGN PROFESSIONALS",
+      title: "ONGOING WEBSITE SUPPORT",
       description:
-        "As a long-time web design and development company, CheapoWeb offers award-winning design services through a team of leading professionals.",
+        "Our partnership continues long after launch with maintenance, updates, monitoring, and optimization.",
+    },
+    {
+      title: "CONVERSION-FOCUSED APPROACH",
+      description:
+        "Every website and campaign is built with one goal in mind: generating measurable business growth.",
     },
   ],
 } as const;

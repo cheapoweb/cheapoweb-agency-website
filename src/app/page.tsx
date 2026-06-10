@@ -9,5 +9,15 @@ export const metadata = createMetadata({
 });
 
 export default function Page() {
-  return <HomePage />;
+  return (
+    <>
+      <link
+        rel="preload"
+        href="/assets/videos/hero-section.mp4"
+        as="video"
+        type="video/mp4"
+      />
+      <HomePage />
+    </>
+  );
 }

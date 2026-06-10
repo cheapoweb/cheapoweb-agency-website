@@ -3,12 +3,12 @@ import { HeroVideo } from "./HeroVideo";
 import styles from "./HeroSection.module.css";
 
 const CONTENT = {
-  displayTitle: "DIGITAL AGENCY NEW YORK BASE",
+  displayTitle: "USA WEB DEVELOPMENT AGENCY",
   title:
-    "NEW YORK WEB DESIGN COMPANY & DIGITAL MARKETING AGENCY SINCE 2020",
+    "USA Web Development & Website Maintenance Agency That Builds Revenue-Generating Websites",
   description:
-    "Build a high performance website with CheapoWeb, an award winning New York web design company and digital marketing agency trusted by brands since 2020. Our website design and development services combine strategic UX, brand storytelling, SEO, AEO, and conversion driven technology to create websites that captivate users, generate leads, and accelerate growth. From custom website development to data driven digital marketing, we engineer online experiences that turn traffic into revenue",
-  cta: "REQUEST GROWTH STRATEGY",
+    "Looking for a trusted web development company that delivers more than just a beautiful website? CheapoWeb helps businesses across the USA grow online with custom website design, web development, marketplace development, website maintenance, SEO, and digital marketing solutions built to increase traffic, leads, and revenue. Since 2020, we've partnered with startups, local businesses, eCommerce brands, law firms, healthcare providers, and growing enterprises to create high-performing digital experiences that turn visitors into customers.",
+  cta: "GET A FREE PROPOSAL",
   videoSrc: "/assets/videos/hero-section.mp4",
 } as const;
 

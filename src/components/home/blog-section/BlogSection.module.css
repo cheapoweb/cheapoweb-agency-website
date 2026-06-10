@@ -44,6 +44,8 @@
 }
 
 .header {
+  max-width: 55rem;
+  margin-inline: auto;
   margin-bottom: clamp(2rem, 4vw, 3rem);
   text-align: center;
 }
@@ -61,8 +63,7 @@
 }
 
 .description {
-  max-width: 38rem;
-  margin: 0 auto;
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--text-body-size);
   font-weight: var(--font-weight-body);

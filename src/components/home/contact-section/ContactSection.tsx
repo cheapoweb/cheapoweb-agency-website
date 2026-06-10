@@ -3,8 +3,8 @@
 import styles from "./ContactSection.module.css";
 
 const CONTENT = {
-  eyebrow: "RULE THE WEB!",
-  title: "REQUEST A WEB DESIGN AND MARKETING PROPOSAL.",
+  eyebrow: "GET STARTED",
+  title: "READY TO GROW YOUR BUSINESS ONLINE?",
   fields: [
     "First Name",
     "Last Name",

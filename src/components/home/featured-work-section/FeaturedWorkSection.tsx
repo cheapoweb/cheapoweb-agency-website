@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import styles from "./FeaturedWorkSection.module.css";
 
 const CONTENT = {
-  title: "FEATURED WORK",
+  title: "WEBSITES BUILT TO PERFORM",
   description:
-    "Our passion is to provide innovative, responsive, highly functional, visually appealing, and feature-rich website designs and digital marketing campaigns that drive business growth.",
+    "Our portfolio showcases custom website design, marketplace development, and digital marketing projects developed to help businesses increase visibility, generate leads, and drive revenue. Every project is tailored to meet specific business goals while delivering exceptional user experiences across desktop and mobile devices.",
   items: [
     {
       title: "Ahmed Law Firm",
       description:
-        "Axium Packaging provides next-generation packaging products that combine engineering expertise, sustainable practices, and deep industry knowledge to deliver plastic bottle packaging solutions.",
+        "A professional law firm website designed to build trust, showcase practice areas, and help potential clients request consultations through a clean, mobile-responsive experience.",
       image: "/assets/images/ahmedlawfirmportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -19,7 +19,7 @@ const CONTENT = {
     {
       title: "Mamoojan.com Inc.",
       description:
-        "Axium Packaging provides next-generation packaging products that combine engineering expertise, sustainable practices, and deep industry knowledge to deliver plastic bottle packaging solutions.",
+        "A custom business website for Mamoojan.com Inc. focused on strong brand presentation, intuitive navigation, and a polished layout built to support online visibility and customer engagement.",
       image: "/assets/images/mamoojanportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -27,7 +27,7 @@ const CONTENT = {
     {
       title: "POWER Organization",
       description:
-        "AVA Colorado has grown into a significant force in outdoor recreation, maintaining a steadfast commitment to high-quality guest experiences and environmental stewardship.",
+        "A modern nonprofit website for POWER Organization that highlights its mission, programs, and community impact while making key information easy to explore on any device.",
       image: "/assets/images/powernyportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -35,7 +35,7 @@ const CONTENT = {
     {
       title: "Pakistani American Republican Club",
       description:
-        "Night of Mystery is a leading creator of downloadable murder mystery party kits that turn any gathering, whether at home or the office, into an unforgettable whodunit.",
+        "A community-focused website for the Pakistani American Republican Club built to share news, events, and organization details with members, supporters, and the broader community.",
       image: "/assets/images/parcusaportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -43,7 +43,7 @@ const CONTENT = {
     {
       title: "Naveed Carter Inc.",
       description:
-        "Night of Mystery is a leading creator of downloadable murder mystery party kits that turn any gathering, whether at home or the office, into an unforgettable whodunit.",
+        "A conversion-focused corporate website for Naveed Carter Inc. featuring professional branding, clear service messaging, and responsive design tailored for business growth.",
       image: "/assets/images/naveedcarterportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -51,7 +51,7 @@ const CONTENT = {
     {
       title: "Emmson Impex LLC",
       description:
-        "Night of Mystery is a leading creator of downloadable murder mystery party kits that turn any gathering, whether at home or the office, into an unforgettable whodunit.",
+        "A streamlined B2B website for Emmson Impex LLC designed to present import and export services clearly and help the company connect with new partners and customers online.",
       image: "/assets/images/emmsonimpexportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",
@@ -59,7 +59,7 @@ const CONTENT = {
     {
       title: "Trillion Inc.",
       description:
-        "Night of Mystery is a leading creator of downloadable murder mystery party kits that turn any gathering, whether at home or the office, into an unforgettable whodunit.",
+        "A scalable business website for Trillion Inc. with a strong brand presence, structured content, and mobile-first design built to improve visibility and lead generation.",
       image: "/assets/images/trillionsusaportfolio.png",
       cta: "VIEW WEBSITE",
       caseStudy: "VIEW CASE STUDY",

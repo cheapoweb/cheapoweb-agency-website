@@ -2,17 +2,17 @@ import { Button } from "@/components/ui/Button";
 import styles from "./StatsSection.module.css";
 
 const CONTENT = {
-  eyebrow: "CHECK IT OUT!",
-  title: "OUR WEB DESIGN COMPANY BRINGS IN THE NUMBERS",
+  eyebrow: "PERFORMANCE METRICS",
+  title: "REAL RESULTS. REAL BUSINESS GROWTH.",
   description:
-    "As a top-tier web design and development agency, we get results! Check out the numbers we have gotten for our clients after designing and launching their new websites.",
-  cta: "CONTACT US",
+    "Our mission is simple: help businesses generate more traffic, more leads, and more revenue through strategic web development and digital marketing. From local businesses to growing enterprises, our campaigns and websites are built to deliver measurable business outcomes.",
+  cta: "VIEW SUCCESS STORIES",
   items: [
-    { value: "200+%", label: "INCREASE IN SALES LEADS" },
-    { value: "95+%", label: "INCREASE IN ENGAGEMENT RATES" },
-    { value: "90+%", label: "INCREASE IN SOCIAL MEDIA FOLLOWERS" },
-    { value: "1,000+%", label: "WEBSITE TRAFFIC" },
-    { value: "22M", label: "GOOGLE AD IMPRESSIONS" },
+    { value: "200%+", label: "INCREASE IN SALES LEADS" },
+    { value: "95%+", label: "INCREASE IN CUSTOMER ENGAGEMENT" },
+    { value: "90%+", label: "INCREASE IN SOCIAL MEDIA GROWTH" },
+    { value: "1,000%+", label: "INCREASE IN WEBSITE TRAFFIC" },
+    { value: "22M+", label: "GOOGLE AD IMPRESSIONS" },
   ],
 } as const;
 
@@ -29,7 +29,7 @@ export function StatsSection() {
             <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
             <h2 className={styles.title}>{CONTENT.title}</h2>
             <p className={styles.description}>{CONTENT.description}</p>
-            <Button href="#contact" variant="outline" className={styles.cta}>
+            <Button href="#featured-work" variant="outline" className={styles.cta}>
               {CONTENT.cta}
             </Button>
           </div>

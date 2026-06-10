@@ -4,25 +4,25 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./TestimonialsSection.module.css";
 
 const CONTENT = {
-  title: "WHAT OUR VALUED CLIENTS ARE SAYING ABOUT US",
-  image: "/assets/images/testimonials-record.webp",
+  title: "WHAT OUR CLIENTS SAY",
+  image: "/assets/images/testimonials-record.png",
   imageAlt: "Vintage record player with a quote mark on the vinyl label",
   items: [
     {
-      quote: "I now understand why they've received so much industry recognition.",
-      body: "The logo has garnered unanimously positive feedback. Committed and easy to work with, CheapoWeb built a robust understanding of brand identity and translated it into a visual design. Their smooth collaboration and extensive industry knowledge are particularly noteworthy.",
+      quote: "CheapoWeb focuses on results, communication, and long-term success.",
+      body: "Businesses trust CheapoWeb because we focus on results, communication, and long-term success. Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations.",
       name: "Byron L. Perkins",
       role: "CEO | NuLife Nation",
     },
     {
-      quote: "The people at CheapoWeb are very bright, very knowledgeable.",
-      body: "The design phase was completed successfully. CheapoWeb did an exceptional job of answering questions and delivering high-quality work. The team earned especially high praise for their broad development knowledge and enthusiastic, cooperative approach.",
+      quote: "Their team delivers technical expertise and creative problem-solving.",
+      body: "Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations. Whether launching a new website or redesigning an existing platform, CheapoWeb remains committed to helping clients grow.",
       name: "Dr. Edward Ritvo",
       role: "Founder | Medical Research Mobile App",
     },
     {
-      quote: "They're great communicators, so we had a fantastic experience.",
-      body: "The new site has received positive feedback from the internal team on it's look and feel and helped solidify their new branding. CheapoWeb is informative and collaborative, establishing a smooth workflow. The team goes above and beyond to meet the goals and requirements set by the client.",
+      quote: "We had a fantastic experience from start to finish.",
+      body: "Whether launching a new website, redesigning an existing platform, or managing ongoing marketing campaigns, we remain committed to helping our clients grow. CheapoWeb combines strategic web development with dependable ongoing support.",
       name: "Andrew Hart",
       role: "Social Media Manager | Icreon",
     },

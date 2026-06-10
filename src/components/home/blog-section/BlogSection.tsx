@@ -1,31 +1,34 @@
 import styles from "./BlogSection.module.css";
 
 const CONTENT = {
-  title: "BLOG",
+  title: "INSIGHTS ON WEB DEVELOPMENT, SEO & DIGITAL MARKETING",
   description:
-    "Check back every week for inspiring articles on website design and digital marketing to help build and expand your digital presence.",
+    "Stay informed with expert insights, industry trends, website optimization strategies, SEO best practices, digital marketing techniques, and web development resources designed to help your business succeed online. Our blog provides actionable guidance for business owners looking to improve visibility, generate leads, and maximize digital performance.",
   posts: [
     {
-      date: "03-02-2026",
-      title: "Top 10 Best Financial Website Designs [March 2026 Update]",
+      date: "06-03-2026",
+      title:
+        "Why Website Maintenance Services Are Essential for Business Growth in 2026",
       excerpt:
-        "Key Takeaways The best financial website designs use an intuitive flow and a stellar UI/UX experience to capture site visitors' business. Digital payments reached $6.6 trillion [...]",
-      image: "/assets/images/ahmedlawfirmportfolio.png",
-      href: "#",
-    },
-    {
-      date: "03-02-2026",
-      title: "Best Web Design Companies in 2026 [March 2026 Update]",
-      excerpt:
-        "Whether you're building a new website or revamping an existing one, partnering with a top web design company is crucial to ensuring a site that is [...]",
+        "Many businesses invest thousands of dollars into building a website but overlook one of the most important factors in long-term success: website maintenance. A website is not a one-time project—it requires continuous updates, monitoring, optimization, and security management to perform effectively.",
       image: "/assets/images/feature-work.webp",
       href: "#",
     },
     {
-      date: "03-02-2026",
-      title: "TOP Web Development Companies in 2026 [March 2026 Update]",
+      date: "06-03-2026",
+      title:
+        "Website Redesign vs. Building a New Website: Which Option Is Right for Your Business?",
       excerpt:
-        "To ensure a fair and objective evaluation, we analyzed numerous web design agencies based on several criteria. These include their portfolio of work, client testimonials, industry [...]",
+        "As businesses grow, their websites often struggle to keep pace with changing customer expectations, modern technology, and evolving search engine requirements. Learn when a redesign makes sense and when starting fresh delivers greater long-term value.",
+      image: "/assets/images/ahmedlawfirmportfolio.png",
+      href: "#",
+    },
+    {
+      date: "06-03-2026",
+      title:
+        "How Custom Web Development Helps Businesses Generate More Leads and Revenue",
+      excerpt:
+        "Your website is often the first interaction potential customers have with your business. Custom web development allows you to build unique digital experiences designed specifically around your goals, customers, and operational requirements.",
       image: "/assets/images/mamoojanportfolio.png",
       href: "#",
     },
@@ -54,7 +57,10 @@ export function BlogSection() {
                   />
                 </div>
                 <div className={styles.body}>
-                  <time className={styles.date} dateTime="2026-03-02">
+                  <time
+                    className={styles.date}
+                    dateTime={`${post.date.slice(6, 10)}-${post.date.slice(0, 2)}-${post.date.slice(3, 5)}`}
+                  >
                     {post.date}
                   </time>
                   <h3 className={styles.postTitle}>{post.title}</h3>

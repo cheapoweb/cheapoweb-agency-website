@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/Button";
 import styles from "./PartnersSection.module.css";
 
 const CONTENT = {
-  title: "OUR PARTNERS",
+  title: "TRUSTED BY GROWING BUSINESSES ACROSS MULTIPLE INDUSTRIES",
   subtitle:
-    "CheapoWeb establishes and nurtures web design and digital marketing partnerships to keep the party going!",
+    "Over the years, CheapoWeb has partnered with businesses across legal, healthcare, construction, retail, eCommerce, professional services, transportation, and nonprofit sectors.",
   description:
-    "As a digital marketing and web design company, we cultivate exceptional partnerships and collaborations with leaders in technology, ecommerce, social media, and more, to deliver effective advertising and web design services to our clients. These highly beneficial partnerships provide us with powerful tools, training, resources, and support, which enable us to deliver the highest quality products for every project. Talk with us about how these collaborative relationships can benefit your company.",
+    "We take pride in building long-term relationships that help our clients adapt, grow, and succeed in an increasingly competitive digital landscape.",
   cta: "REQUEST PARTNERSHIP",
 } as const;
 
