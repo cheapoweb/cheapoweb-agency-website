@@ -6,30 +6,30 @@ const CONTENT = {
     "Stay informed with expert insights, industry trends, website optimization strategies, SEO best practices, digital marketing techniques, and web development resources designed to help your business succeed online. Our blog provides actionable guidance for business owners looking to improve visibility, generate leads, and maximize digital performance.",
   posts: [
     {
-      date: "06-03-2026",
+      date: "29-05-2026",
       title:
         "Why Website Maintenance Services Are Essential for Business Growth in 2026",
       excerpt:
         "Many businesses invest thousands of dollars into building a website but overlook one of the most important factors in long-term success: website maintenance. A website is not a one-time project—it requires continuous updates, monitoring, optimization, and security management to perform effectively.",
-      image: "/assets/images/feature-work.webp",
+      image: "/assets/images/website-maintenance-blog1.png",
       href: "#",
     },
     {
-      date: "06-03-2026",
+      date: "08-02-2026",
       title:
         "Website Redesign vs. Building a New Website: Which Option Is Right for Your Business?",
       excerpt:
         "As businesses grow, their websites often struggle to keep pace with changing customer expectations, modern technology, and evolving search engine requirements. Learn when a redesign makes sense and when starting fresh delivers greater long-term value.",
-      image: "/assets/images/ahmedlawfirmportfolio.png",
+      image: "/assets/images/website-redesign-blog2.png",
       href: "#",
     },
     {
-      date: "06-03-2026",
+      date: "18-04-2026",
       title:
         "How Custom Web Development Helps Businesses Generate More Leads and Revenue",
       excerpt:
         "Your website is often the first interaction potential customers have with your business. Custom web development allows you to build unique digital experiences designed specifically around your goals, customers, and operational requirements.",
-      image: "/assets/images/mamoojanportfolio.png",
+      image: "/assets/images/custom-web-development-blog3.png",
       href: "#",
     },
   ],
