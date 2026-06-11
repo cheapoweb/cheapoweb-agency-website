@@ -6,7 +6,7 @@ import styles from "./TestimonialsSection.module.css";
 const CONTENT = {
   title: "WHAT OUR CLIENTS SAY",
   image: "/assets/images/testimonials-record.png",
-  imageAlt: "Vintage record player with a quote mark on the vinyl label",
+  imageAlt: "cheapoweb focuses on results, communication, and long-term success",
   items: [
     {
       quote: "cheapoweb focuses on results, communication, and long-term success.",
