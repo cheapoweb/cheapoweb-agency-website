@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BackToTopButton } from "@/components/layout/BackToTopButton";
+import { BackToTopButton } from "../back-to-top-button/BackToTopButton";
 import { contactInfo } from "@/config/contact";
 import { footerNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
@@ -7,10 +7,10 @@ import styles from "./Footer.module.css";
 
 const CONTENT = {
   headline: "LET'S GROW YOUR BRAND",
-  worldwide: "CHEAPOWEB WORLDWIDE",
+  worldwide: "cheapoweb worldwide",
   backToTop: "BACK TO TOP",
   followUs: "Follow Us",
-  copyright: `All Rights Reserved © 2020-${String(new Date().getFullYear()).slice(-2)} CheapoWeb Worldwide is a Web Design Company since ${siteConfig.since}.`,
+  copyright: `All Rights Reserved © 2020-${String(new Date().getFullYear()).slice(-2)} cheapoweb worldwide is a web design company since ${siteConfig.since}.`,
   legal: [
     "Privacy Policy",
     "Terms of Use",
@@ -97,7 +97,7 @@ export function Footer() {
     <footer id="contact" className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.topRow}>
-          <Link href="/" className={styles.logoBadge} aria-label="CheapoWeb home">
+          <Link href="/" className={styles.logoBadge} aria-label="cheapoweb home">
             <span className={styles.logoText}>{siteConfig.name}</span>
           </Link>
 
@@ -151,7 +151,7 @@ export function Footer() {
                 </div>
                 <img
                   src="/assets/images/QR-Code.jpeg"
-                  alt="CheapoWeb contact QR code"
+                  alt="cheapoweb contact QR code"
                   className={styles.qrCode}
                   loading="lazy"
                 />

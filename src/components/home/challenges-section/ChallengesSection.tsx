@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import styles from "./ChallengesSection.module.css";
 
 const CONTENT = {

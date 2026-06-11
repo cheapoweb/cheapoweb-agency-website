@@ -227,6 +227,17 @@
   transform: scale(1.15);
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .slide {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .sliderShell {
+    padding-inline: 2.5rem;
+  }
+}
+
 @media (min-width: 992px) {
   .header,
   .slide {
@@ -288,5 +299,92 @@
   .navBtn,
   .dot {
     transition: none;
+  }
+}
+
+/* Laptop only (768px–1300px) */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .section {
+    min-height: 72vh;
+    padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  .layout {
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .header {
+    gap: 0.875rem;
+    align-items: start;
+  }
+
+  .header h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.08;
+  }
+
+  .mainDescription {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .header,
+  .slide {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .sliderShell {
+    padding-inline: 3.75rem;
+  }
+
+  .navBtn {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+
+  .navBtnPrev {
+    left: 0.125rem;
+  }
+
+  .navBtnNext {
+    right: 0.125rem;
+  }
+
+  .chevron {
+    width: 0.55rem;
+    height: 0.55rem;
+  }
+
+  .left {
+    padding-inline-end: 0.75rem;
+  }
+
+  .itemDescription h3 {
+    font-size: clamp(1.125rem, 2vw, 1.35rem);
+  }
+
+  .itemDescription p {
+    font-size: clamp(0.8125rem, 1.4vw, 0.9rem);
+    line-height: 1.55;
+  }
+
+  .right,
+  .carousel {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+  .header,
+  .slide {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2.25rem;
+  }
+
+  .right,
+  .carousel {
+    min-height: 340px;
   }
 }

@@ -51,13 +51,19 @@
 }
 
 .formWrap {
-  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+  padding: clamp(3rem, 6vw, 4.5rem) var(--layout-section-padding-inline);
 }
 
 @media (min-width: 992px) {
   .formWrap {
-    padding: clamp(3.5rem, 6vw, 5rem) 200px clamp(3.5rem, 6vw, 5rem)
-      clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(3.5rem, 6vw, 5rem) var(--layout-section-padding-inline)
+      clamp(3.5rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .formWrap {
+    padding-inline: var(--layout-section-padding-inline);
   }
 }
 
@@ -172,5 +178,41 @@
   .form textarea,
   .submit {
     transition: none;
+  }
+}
+
+/* Laptop only (768px–1300px) */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .section {
+    min-height: clamp(34rem, 50vw, 42rem);
+    background-position: left center;
+    background-size: cover;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      90deg,
+      rgb(0 0 0 / 15%) 0%,
+      rgb(0 0 0 / 20%) 38%,
+      rgb(0 0 0 / 52%) 58%,
+      rgb(0 0 0 / 62%) 100%
+    );
+  }
+
+  .inner {
+    grid-template-columns: 55% 45%;
+  }
+
+  .visualSpacer {
+    display: block;
+  }
+
+  .formWrap {
+    padding: clamp(2.5rem, 5vw, 3.5rem) var(--layout-section-padding-inline);
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    max-width: 30rem;
   }
 }

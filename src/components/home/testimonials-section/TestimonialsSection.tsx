@@ -9,20 +9,20 @@ const CONTENT = {
   imageAlt: "Vintage record player with a quote mark on the vinyl label",
   items: [
     {
-      quote: "CheapoWeb focuses on results, communication, and long-term success.",
-      body: "Businesses trust CheapoWeb because we focus on results, communication, and long-term success. Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations.",
+      quote: "cheapoweb focuses on results, communication, and long-term success.",
+      body: "Businesses trust cheapoweb because we focus on results, communication, and long-term success. Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations.",
       name: "Byron L. Perkins",
       role: "CEO | NuLife Nation",
     },
     {
       quote: "Their team delivers technical expertise and creative problem-solving.",
-      body: "Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations. Whether launching a new website or redesigning an existing platform, CheapoWeb remains committed to helping clients grow.",
+      body: "Our clients consistently highlight our responsiveness, technical expertise, creative problem-solving, and ability to deliver projects that exceed expectations. Whether launching a new website or redesigning an existing platform, cheapoweb remains committed to helping clients grow.",
       name: "Dr. Edward Ritvo",
       role: "Founder | Medical Research Mobile App",
     },
     {
       quote: "We had a fantastic experience from start to finish.",
-      body: "Whether launching a new website, redesigning an existing platform, or managing ongoing marketing campaigns, we remain committed to helping our clients grow. CheapoWeb combines strategic web development with dependable ongoing support.",
+      body: "Whether launching a new website, redesigning an existing platform, or managing ongoing marketing campaigns, we remain committed to helping our clients grow. cheapoweb combines strategic web development with dependable ongoing support.",
       name: "Andrew Hart",
       role: "Social Media Manager | Icreon",
     },

@@ -1,9 +1,10 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import styles from "./WhyChooseSection.module.css";
 
 const CONTENT = {
-  eyebrow: "WHY CHOOSE CHEAPOWEB",
-  title: "WHY BUSINESSES CHOOSE CHEAPOWEB",
+  eyebrowLead: "WHY CHOOSE",
+  titleLead: "WHY BUSINESSES CHOOSE",
+  brand: "cheapoweb",
   cta: "GET MY CUSTOM QUOTE",
   items: [
     {
@@ -61,8 +62,14 @@ export function WhyChooseSection() {
         </div>
 
         <div className={styles.right}>
-            <p className={styles.eyebrow}>{CONTENT.eyebrow}</p>
-            <h2 className={styles.title}>{CONTENT.title}</h2>
+            <p className={styles.eyebrow}>
+              {CONTENT.eyebrowLead}{" "}
+              <span className={styles.brandName}>{CONTENT.brand}</span>
+            </p>
+            <h2 className={styles.title}>
+              {CONTENT.titleLead}{" "}
+              <span className={styles.brandName}>{CONTENT.brand}</span>
+            </h2>
 
             <div className={styles.grid}>
               {CONTENT.items.map((item) => (

@@ -63,6 +63,88 @@
   --text-h4-size: 1.5rem; /* 24px */
   --text-h5-size: 1.25rem; /* 20px */
   --text-h6-size: 1.125rem; /* 18px */
+
+  /* ── Responsive layout gutters ── */
+  --layout-section-padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  --layout-section-padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (max-width: 639px) {
+  :root {
+    --text-h1-size: 2.25rem;
+    --text-h2-size: 1.875rem;
+    --text-h3-size: 1.5rem;
+    --text-h4-size: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --layout-hero-padding-x: clamp(1.25rem, 4vw, 1.5rem);
+  }
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --layout-section-padding-inline: clamp(1.5rem, 4vw, 3rem);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --layout-section-padding-inline: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --layout-section-padding-inline: clamp(2.5rem, 6vw, 6rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --layout-section-padding-inline: clamp(4rem, 8vw, 8rem);
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --layout-section-padding-inline: clamp(5rem, 10vw, 10rem);
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --layout-section-padding-inline: 200px;
+  }
+}
+
+/* Laptop range only (768px–1300px) — does not affect mobile or large desktop */
+@media (min-width: 768px) and (max-width: 1300px) {
+  :root {
+    --layout-section-padding-inline: clamp(1.75rem, 3.5vw, 2.75rem);
+    --layout-section-padding-block: clamp(2.25rem, 4vw, 3.25rem);
+    --layout-hero-padding-x: clamp(1.5rem, 3vw, 2.25rem);
+    --layout-hero-left: 40%;
+    --layout-hero-right: 60%;
+    --text-h1-size: clamp(2.25rem, 4vw, 2.75rem);
+    --text-h2-size: clamp(1.75rem, 3.2vw, 2.125rem);
+    --text-h3-size: clamp(1.5rem, 2.5vw, 1.75rem);
+  }
 }
 
 /* Tailwind theme — maps utilities to semantic tokens above */

@@ -66,6 +66,74 @@
   padding: 5.5rem var(--layout-hero-padding-x) 3rem;
 }
 
+@media (max-width: 639px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .split {
+    min-height: auto;
+  }
+
+  .contentInner {
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .mediaPanel {
+    min-height: 40vh;
+  }
+}
+
+/* Mobile only — video first, text second */
+@media (max-width: 991px) {
+  .mediaPanel {
+    order: 1;
+  }
+
+  .contentPanel {
+    order: 2;
+  }
+}
+
+/* Mobile only — prevent right-edge gap / horizontal bleed */
+@media (max-width: 767px) {
+  .hero,
+  .split,
+  .contentPanel,
+  .mediaPanel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contentPanel {
+    overflow-x: clip;
+  }
+
+  .contentInner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2rem;
+    padding-inline: var(--layout-section-padding-inline);
+  }
+
+  .copy,
+  .displayTitle,
+  .title,
+  .description {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .cta {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
 @media (min-width: 992px) {
   .contentInner {
     padding: 6rem var(--layout-hero-padding-x) 3.5rem;
@@ -161,4 +229,56 @@
     transparent 10%
   );
   pointer-events: none;
+}
+
+/* Laptop only (768px–1300px) — stacked column: video first, content second */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .hero,
+  .split {
+    min-height: auto;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .mediaPanel {
+    order: 1;
+    min-height: clamp(22rem, 40vw, 28rem);
+  }
+
+  .contentPanel {
+    order: 2;
+  }
+
+  .contentInner {
+    min-height: auto;
+    padding: 2.5rem var(--layout-hero-padding-x) 2.5rem;
+  }
+
+  .copy {
+    max-width: none;
+    padding-bottom: 1rem;
+  }
+
+  .displayTitle {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .title {
+    font-size: clamp(1rem, 1.85vw, 1.3rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .videoOverlay {
+    background: none;
+  }
 }

@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  width: 100vw;
+  width: 100%;
   padding: 0;
   background-color: var(--background);
   overflow: hidden;
@@ -20,10 +20,21 @@
 }
 
 .leftArt {
-  min-height: 520px;
+  min-height: clamp(16rem, 42vw, 22rem);
   overflow: hidden;
   position: relative;
-  
+}
+
+@media (min-width: 768px) {
+  .leftArt {
+    min-height: clamp(18rem, 38vw, 28rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .leftArt {
+    min-height: 520px;
+  }
 }
 
 .leftArtImage {
@@ -35,7 +46,7 @@
 }
 
 .right {
-  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 200px);
+  padding: clamp(2.5rem, 5vw, 4rem) var(--layout-section-padding-inline);
 }
 
 .eyebrow {
@@ -46,6 +57,10 @@
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 0.75rem;
+}
+
+.brandName {
+  text-transform: lowercase;
 }
 
 .title {
@@ -106,4 +121,38 @@
   border-color: var(--accent) !important;
   background-color: var(--foreground-on-dark) !important;
   color: var(--accent) !important;
+}
+
+/* Laptop only (768px–1300px) */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .split {
+    grid-template-columns: 32% 68%;
+  }
+
+  .leftArt {
+    min-height: clamp(16rem, 28vw, 22rem);
+  }
+
+  .right {
+    padding-block: clamp(2.25rem, 4vw, 3rem);
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem) !important;
+    margin-bottom: 1.25rem;
+  }
+
+  .grid {
+    gap: 1.25rem 1.75rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+  .split {
+    grid-template-columns: 30% 70%;
+  }
+
+  .leftArt {
+    min-height: 380px;
+  }
 }

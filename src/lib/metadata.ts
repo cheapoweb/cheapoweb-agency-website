@@ -7,14 +7,33 @@ type PageMetadata = {
   path?: string;
 };
 
+export function getPageHead({
+  title,
+  description,
+  path = "",
+}: PageMetadata = {}) {
+  const pageTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
+  const pageDescription = description ?? siteConfig.description;
+  const canonical = new URL(path, siteConfig.url).toString();
+
+  return {
+    pageTitle,
+    pageDescription,
+    canonical,
+  };
+}
+
+/** @deprecated App Router only — use getPageHead with next/head in Pages Router */
 export function createMetadata({
   title,
   description,
   path = "",
 }: PageMetadata = {}): Metadata {
-  const pageTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
-  const pageDescription = description ?? siteConfig.description;
-  const canonical = new URL(path, siteConfig.url).toString();
+  const { pageTitle, pageDescription, canonical } = getPageHead({
+    title,
+    description,
+    path,
+  });
 
   return {
     title: pageTitle,

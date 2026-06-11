@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import styles from "./StatsSection.module.css";
 
 const CONTENT = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import styles from "./Footer.module.css";
+import styles from "./BackToTopButton.module.css";
 
 function ArrowUpIcon() {
   return (
@@ -30,14 +30,14 @@ export function BackToTopButton({ label }: BackToTopButtonProps) {
   return (
     <button
       type="button"
-      className={styles.backToTop}
+      className={styles.button}
       onClick={handleClick}
       aria-label={label}
     >
-      <span className={styles.backToTopIcon}>
+      <span className={styles.icon}>
         <ArrowUpIcon />
       </span>
-      <span className={styles.backToTopLabel}>{label}</span>
+      <span className={styles.label}>{label}</span>
     </button>
   );
 }

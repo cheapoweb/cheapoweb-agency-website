@@ -13,9 +13,9 @@ import {
   TestimonialsSection,
   WhyChooseSection,
 } from "@/components/home";
-import styles from "./HomePage.module.css";
+import styles from "./home.module.css";
 
-export function HomePage() {
+export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection />

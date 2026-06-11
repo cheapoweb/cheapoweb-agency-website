@@ -14,13 +14,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-inline: 1.5rem;
+  padding-inline: var(--layout-section-padding-inline);
   padding-block: clamp(3rem, 6vw, 4.5rem);
 }
 
-@media (min-width: 992px) {
-  .contentZone {
-    padding-inline: 200px;
+@media (max-width: 639px) {
+  .section {
+    grid-template-rows: auto minmax(14rem, 28vh);
   }
 }
 
@@ -81,4 +81,23 @@
 .cta:hover {
   background-color: var(--accent) !important;
   border-color: var(--accent) !important;
+}
+
+/* Laptop only (768px–1300px) */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .section {
+    grid-template-rows: auto minmax(20rem, 30vh);
+  }
+
+  .contentZone {
+    padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  .description {
+    margin-bottom: 1.5rem;
+  }
 }

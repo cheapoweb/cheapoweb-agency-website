@@ -2,8 +2,8 @@
 
 import { contactInfo } from "@/config/contact";
 import { siteConfig } from "@/config/site";
-import { SectionContainer } from "@/components/ui/SectionContainer";
-import styles from "./ContactPage.module.css";
+import { SectionContainer } from "@/components/ui";
+import styles from "./contact.module.css";
 
 const CONTENT = {
   title: "RULE THE WEB!",
@@ -19,7 +19,7 @@ const CONTENT = {
   ],
 } as const;
 
-export function ContactPage() {
+export default function Contact() {
   const { primary } = siteConfig.locations;
 
   return (

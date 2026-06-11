@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import styles from "./ServicesSection.module.css";
 
 const CONTENT = {
@@ -75,7 +75,7 @@ const CONTENT = {
   cta: "REQUEST PROPOSAL",
 } as const;
 
-const DESKTOP_QUERY = "(min-width: 992px)";
+const SCROLL_PIN_QUERY = "(min-width: 1301px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 export function ServicesSection() {
@@ -129,7 +129,7 @@ export function ServicesSection() {
     const updateScrollPin = () => {
       frameId = 0;
 
-      const isDesktop = window.matchMedia(DESKTOP_QUERY).matches;
+      const isDesktop = window.matchMedia(SCROLL_PIN_QUERY).matches;
       const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
 
       if (!isDesktop || prefersReducedMotion) {

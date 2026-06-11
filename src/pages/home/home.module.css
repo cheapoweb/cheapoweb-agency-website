@@ -4,7 +4,6 @@
   overflow-x: clip;
 }
 
-/* Pull hero under overlay header on desktop */
 @media (min-width: 992px) {
   .page {
     margin-top: 0;

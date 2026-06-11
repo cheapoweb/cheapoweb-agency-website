@@ -1,0 +1,107 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--foreground-on-dark);
+  font: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--accent-highlight);
+  color: var(--color-dark-navy);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+}
+
+.icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.label {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-heading-bold);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(254, 255, 255, 0.55);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button:hover .icon,
+.button:focus-visible .icon {
+  background: var(--color-white);
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 0 0 3px rgba(58, 175, 169, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.button:hover .icon svg,
+.button:focus-visible .icon svg {
+  transform: translateY(-1px);
+}
+
+.button:hover .label,
+.button:focus-visible .label {
+  color: var(--accent-highlight);
+  transform: translateY(-1px);
+}
+
+.button:active .icon {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow:
+    0 0 0 2px rgba(58, 175, 169, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.button:focus-visible {
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  .button {
+    justify-self: end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .icon,
+  .icon svg,
+  .label {
+    transition: none;
+  }
+
+  .button:hover .icon,
+  .button:focus-visible .icon,
+  .button:active .icon {
+    transform: none;
+  }
+
+  .button:hover .icon svg,
+  .button:focus-visible .icon svg,
+  .button:hover .label,
+  .button:focus-visible .label {
+    transform: none;
+  }
+}

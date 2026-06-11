@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import styles from "./PartnersSection.module.css";
 
 const CONTENT = {
   title: "TRUSTED BY GROWING BUSINESSES ACROSS MULTIPLE INDUSTRIES",
   subtitle:
-    "Over the years, CheapoWeb has partnered with businesses across legal, healthcare, construction, retail, eCommerce, professional services, transportation, and nonprofit sectors.",
+    "Over the years, cheapoweb has partnered with businesses across legal, healthcare, construction, retail, eCommerce, professional services, transportation, and nonprofit sectors.",
   description:
     "We take pride in building long-term relationships that help our clients adapt, grow, and succeed in an increasingly competitive digital landscape.",
   cta: "REQUEST PARTNERSHIP",
