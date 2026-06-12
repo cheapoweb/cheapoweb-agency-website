@@ -15,6 +15,7 @@ const CONTENT = {
 export function ServicesDigitalMarketingSection() {
   return (
     <section
+      id="digital-marketing"
       className={styles.section}
       aria-labelledby="services-digital-marketing-heading"
     >

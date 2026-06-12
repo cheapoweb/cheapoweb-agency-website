@@ -118,8 +118,8 @@ export function Footer() {
                 <h3 className={styles.colTitle}>{column.title}</h3>
                 <ul>
                   {column.items.map((item) => (
-                    <li key={item}>
-                      <Link href="#services">{item}</Link>
+                    <li key={item.label}>
+                      <Link href={item.href}>{item.label}</Link>
                     </li>
                   ))}
                 </ul>

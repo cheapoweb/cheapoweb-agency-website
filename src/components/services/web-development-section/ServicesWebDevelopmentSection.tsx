@@ -15,6 +15,7 @@ const CONTENT = {
 export function ServicesWebDevelopmentSection() {
   return (
     <section
+      id="web-development"
       className={styles.section}
       aria-labelledby="services-web-development-heading"
     >

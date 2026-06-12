@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui";
 import type { ServicesTabbedSectionContent } from "@/config/services-tabbed-sections";
 import styles from "./ServicesTabbedSection.module.css";
@@ -9,10 +9,46 @@ type ServicesTabbedSectionProps = {
   content: ServicesTabbedSectionContent;
 };
 
+function getTabIdFromHash(sectionId: string, hash: string) {
+  const tabPrefix = `${sectionId}-tabs--`;
+  if (!hash.startsWith(tabPrefix)) {
+    return null;
+  }
+
+  return hash.slice(tabPrefix.length);
+}
+
 export function ServicesTabbedSection({ content }: ServicesTabbedSectionProps) {
   const [activeTabId, setActiveTabId] = useState(content.tabs[0]?.id ?? "");
   const activeTab =
     content.tabs.find((tab) => tab.id === activeTabId) ?? content.tabs[0];
+  const sectionAnchorId = `${content.id}-tabs`;
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const hash = decodeURIComponent(window.location.hash.slice(1));
+      if (!hash) {
+        return;
+      }
+
+      const tabId = getTabIdFromHash(content.id, hash);
+      if (tabId && content.tabs.some((tab) => tab.id === tabId)) {
+        setActiveTabId(tabId);
+      }
+
+      if (hash === sectionAnchorId || tabId) {
+        document.getElementById(sectionAnchorId)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, [content, sectionAnchorId]);
 
   if (!activeTab) {
     return null;
@@ -22,6 +58,7 @@ export function ServicesTabbedSection({ content }: ServicesTabbedSectionProps) {
 
   return (
     <section
+      id={sectionAnchorId}
       className={styles.section}
       aria-label="Service categories"
       data-section-id={content.id}

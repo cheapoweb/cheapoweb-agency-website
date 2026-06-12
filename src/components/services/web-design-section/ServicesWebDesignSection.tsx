@@ -14,7 +14,11 @@ const CONTENT = {
 
 export function ServicesWebDesignSection() {
   return (
-    <section className={styles.section} aria-labelledby="services-web-design-heading">
+    <section
+      id="web-design"
+      className={styles.section}
+      aria-labelledby="services-web-design-heading"
+    >
       <div className={styles.box}>
         <div className={styles.split}>
           <div className={styles.contentCol}>

@@ -15,6 +15,7 @@ const CONTENT = {
 export function ServicesWebMaintenanceSection() {
   return (
     <section
+      id="web-maintenance"
       className={styles.section}
       aria-labelledby="services-web-maintenance-heading"
     >

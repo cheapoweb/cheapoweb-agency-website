@@ -21,6 +21,7 @@ type DropdownLinkProps = {
   item: NavLink;
   openSubmenu?: string | null;
   setOpenSubmenu?: (label: string | null) => void;
+  allowHover?: boolean;
 } & NavHandlers;
 
 function DropdownLink({
@@ -29,6 +30,7 @@ function DropdownLink({
   onAccordionToggle,
   openSubmenu,
   setOpenSubmenu,
+  allowHover = false,
 }: DropdownLinkProps) {
   const hasChildren = Boolean(item.children?.length);
   const usesSharedSubmenu = setOpenSubmenu !== undefined;
@@ -64,14 +66,20 @@ function DropdownLink({
     <li
       className={`${styles.dropdownItem} ${styles.hasSubmenu} ${subOpen ? styles.hasSubmenuOpen : ""}`}
     >
-      <button
-        type="button"
-        className={styles.submenuTrigger}
-        aria-expanded={subOpen}
-        onClick={toggleSub}
-      >
-        {item.label}
-      </button>
+      {allowHover && item.href ? (
+        <Link href={item.href} className={styles.submenuTrigger} onClick={onNavigate}>
+          {item.label}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={styles.submenuTrigger}
+          aria-expanded={subOpen}
+          onClick={toggleSub}
+        >
+          {item.label}
+        </button>
+      )}
       <ul
         className={`${styles.subDropdown} ${subOpen ? styles.subDropdownOpen : ""}`}
       >
@@ -81,6 +89,7 @@ function DropdownLink({
             item={child}
             onNavigate={onNavigate}
             onAccordionToggle={onAccordionToggle}
+            allowHover={allowHover}
           />
         ))}
       </ul>
@@ -232,6 +241,7 @@ function NavItem({
             onAccordionToggle={onAccordionToggle}
             openSubmenu={openSubmenu}
             setOpenSubmenu={setOpenSubmenu}
+            allowHover={allowHover}
           />
         ))}
       </ul>
