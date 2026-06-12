@@ -93,10 +93,22 @@ function NavItem({
   onNavigate,
   onAccordionToggle,
 }: { item: NavLink } & NavHandlers) {
+  const router = useRouter();
   const hasChildren = Boolean(item.children?.length);
   const [open, setOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [allowHover, setAllowHover] = useState(false);
+  const itemRef = useRef<HTMLLIElement>(null);
+
+  const closeDropdown = () => {
+    setOpen(false);
+    setOpenSubmenu(null);
+  };
+
+  const handleNavigate = () => {
+    closeDropdown();
+    onNavigate?.();
+  };
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 992px)");
@@ -109,10 +121,42 @@ function NavItem({
   }, []);
 
   useEffect(() => {
+    closeDropdown();
+  }, [router.asPath]);
+
+  useEffect(() => {
     if (!open) {
       setOpenSubmenu(null);
     }
   }, [open]);
+
+  useEffect(() => {
+    if (!open || !allowHover) {
+      return;
+    }
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (itemRef.current?.contains(event.target as Node)) {
+        return;
+      }
+
+      closeDropdown();
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [open, allowHover]);
 
   const toggleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -133,25 +177,58 @@ function NavItem({
 
   return (
     <li
+      ref={itemRef}
       className={`${styles.navItem} ${styles.hasDropdown}`}
+      data-open={open || undefined}
       onMouseEnter={() => allowHover && setOpen(true)}
       onMouseLeave={() => allowHover && setOpen(false)}
     >
-      <button
-        type="button"
-        className={styles.navTrigger}
-        aria-expanded={open}
-        aria-haspopup="true"
-        onClick={toggleOpen}
-      >
-        {item.label}
-      </button>
+      {allowHover && item.href ? (
+        <div className={styles.navDropdownControl}>
+          <Link href={item.href} className={styles.navLink} onClick={handleNavigate}>
+            {item.label}
+          </Link>
+          <button
+            type="button"
+            className={styles.navCaret}
+            aria-expanded={open}
+            aria-label={`Open ${item.label} menu`}
+            onClick={toggleOpen}
+          >
+            <span className={styles.navCaretIcon} aria-hidden />
+          </button>
+        </div>
+      ) : item.href ? (
+        <Link
+          href={item.href}
+          className={styles.navTrigger}
+          aria-expanded={open}
+          aria-haspopup="true"
+          onClick={(event) => {
+            event.preventDefault();
+            onAccordionToggle?.();
+            setOpen((value) => !value);
+          }}
+        >
+          {item.label}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={styles.navTrigger}
+          aria-expanded={open}
+          aria-haspopup="true"
+          onClick={toggleOpen}
+        >
+          {item.label}
+        </button>
+      )}
       <ul className={`${styles.dropdown} ${open ? styles.dropdownOpen : ""}`}>
         {item.children!.map((child) => (
           <DropdownLink
             key={child.label}
             item={child}
-            onNavigate={onNavigate}
+            onNavigate={handleNavigate}
             onAccordionToggle={onAccordionToggle}
             openSubmenu={openSubmenu}
             setOpenSubmenu={setOpenSubmenu}
